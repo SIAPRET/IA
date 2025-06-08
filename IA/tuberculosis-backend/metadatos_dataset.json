@@ -1,0 +1,15 @@
+{
+  "fecha_generacion": "2025-05-10T21:17:39.886772",
+  "total_instancias": 10000,
+  "distribucion_clases": {
+    "tb": 3000,
+    "no_tb": 7000
+  },
+  "configuracion": {
+    "target_distribution": {
+      "tb": 0.3,
+      "no_tb": 0.7
+    },
+    "version": "1.1"
+  }
+}

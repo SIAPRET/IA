@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIAPRET</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* --- Root Variables & Light Theme --- */
+        :root {
+            --primary-color: #007bff; /* Vibrant Royal Blue */
+            --primary-dark: #0056b3;  /* Deeper Blue for Interaction */
+            --accent-color: #6a0dad;  /* Energetic Deep Purple */
+            --danger-color: #dc3545;  /* Clear, Strong Red */
+            --success-color: #28a745; /* Lively Green */
+            --warning-color: #ffc107; /* Bright, Alert Yellow */
+
+            --text-primary: #212529;    /* Dark Charcoal for Main Content */
+            --text-secondary: #6c757d;  /* Muted Grey for Sub-text */
+            --text-light: #f8f9fa;      /* White for Dark Backgrounds */
+
+            --bg-body: #f0f2f5;         /* Soft, Subtle Background */
+            --bg-card: #ffffff;         /* Pristine White Card Background */
+            --bg-chat-input: #e9ecef;   /* Light Grey for Chat/Input Areas */
+            --bg-hover-effect: rgba(0, 123, 255, 0.05); /* Subtle Hover BG */
+
+            --border-default: #dee2e6;  /* Standard Border Color */
+            --border-focus: var(--primary-color); /* Primary for Focus State */
+
+            --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.05); /* Minimal Shadow */
+            --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.1); /* Medium Depth Shadow */
+            --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.15); /* Pronounced Shadow */
+
+            --border-radius-sm: 6px;
+            --border-radius-md: 12px;
+            --border-radius-lg: 24px;
+            --border-radius-full: 50vw; /* Perfect Pill Shape */
+
+            --transition-duration: 0.35s; /* Global Transition Speed */
+            --font-body: 'Inter', sans-serif;
+            --font-heading: 'Montserrat', sans-serif;
+
+            /* Gradient for subtle effects */
+            --gradient-primary: linear-gradient(135deg, var(--primary-color), #4CAF50); /* Blue to Green */
+            --gradient-accent: linear-gradient(135deg, var(--accent-color), #ff69b4); /* Purple to Pink */
+        }
+
+        /* --- Dark Theme Variables --- */
+        body.dark-mode {
+            --primary-color: #6A7BFF; /* Softer, glowing blue-purple */
+            --primary-dark: #4A5BCC;
+            --accent-color: #00bcd4;  /* Teal for dark highlights */
+            --danger-color: #ef5350;
+            --success-color: #66bb6a;
+            --warning-color: #ffc26a;
+
+            --text-primary: #e0e6ef;
+            --text-secondary: #ffffff;
+            --text-light: #e9e9e9;
+
+            --bg-body: #1a202c;
+            --bg-card: #000000;
+            --bg-chat-input: #000000;
+            --bg-hover-effect: rgba(106, 123, 255, 0.1);
+
+            --border-default: #4a5568;
+            --border-focus: var(--primary-color);
+
+            --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.2);
+            --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.4);
+
+            --gradient-primary: linear-gradient(135deg, var(--primary-color), #4A5568);
+            --gradient-accent: linear-gradient(135deg, var(--accent-color), #00e5ff);
+        }
+
+        /* --- Global Styles --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 25px; /* More padding around container */
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Background Animated Circles/Shapes for Modern Touch */
+        body::before, body::after {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            border-radius: 50%;
+            opacity: 0.1;
+            filter: blur(80px); /* Soft glow effect */
+        }
+        body::before {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--primary-color), transparent);
+            top: -50px;
+            left: -50px;
+            animation: moveShape 15s infinite alternate ease-in-out;
+        }
+        body::after {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--accent-color), transparent);
+            bottom: -80px;
+            right: -80px;
+            animation: moveShape 20s infinite alternate-reverse ease-in-out;
+        }
+
+        @keyframes moveShape {
+            0% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(20px, -20px) scale(1.05); }
+            50% { transform: translate(-30px, 30px) scale(0.95); }
+            75% { transform: translate(10px, 40px) scale(1.1); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+        .container {
+            max-width: 950px; /* Even wider for more space */
+            width: 100%;
+            padding: 45px; /* Generous padding for premium feel */
+            background-color: var(--bg-card);
+            box-shadow: var(--shadow-lg); /* More pronounced shadow */
+            border-radius: var(--border-radius-lg);
+            display: flex;
+            flex-direction: column;
+            min-height: calc(100vh - 50px); /* Maximize vertical space */
+            transition: background-color var(--transition-duration) ease, box-shadow var(--transition-duration) ease;
+            position: relative;
+            overflow: hidden; /* Hide internal overflows */
+        }
+
+        /* --- Header --- */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border-default);
+            position: relative;
+        }
+
+        h1 {
+            font-family: var(--font-heading);
+            color: var(--primary-color);
+            margin-bottom: 12px;
+            font-size: 48px; /* Massive, impactful title */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            font-weight: 900; /* Ultra bold */
+            letter-spacing: -1.5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1); /* Deeper text shadow */
+            animation: fadeInScale 0.8s ease-out forwards; /* Header animation */
+        }
+        h1 i {
+            font-size: 0.85em; /* Slightly smaller icon */
+            color: var(--accent-color);
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 20px;
+            font-weight: 500;
+            animation: fadeIn 1s ease-out forwards;
+            animation-delay: 0.2s;
+            opacity: 0;
+        }
+
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* --- Dark Mode Toggle Button --- */
+        #dark-mode-toggle {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: var(--bg-chat-input); /* Consistent with input bg */
+            border: 1px solid var(--border-default);
+            font-size: 32px;
+            cursor: pointer;
+            color: var(--text-secondary);
+            transition: all var(--transition-duration) ease;
+            padding: 15px;
+            border-radius: var(--border-radius-full); /* Full circle */
+            outline: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        #dark-mode-toggle:hover {
+            transform: scale(1.15);
+            color: var(--primary-color);
+            box-shadow: var(--shadow-md);
+            background-color: var(--bg-hover-effect);
+        }
+
+        body.dark-mode #dark-mode-toggle .fa-moon { display: none; }
+        body:not(.dark-mode) #dark-mode-toggle .fa-sun { display: none; }
+
+
+        /* --- Chat Container --- */
+        .chat-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 35px; /* More spacious chat area */
+            background-color: var(--bg-chat-input);
+            border-radius: var(--border-radius-md);
+            margin-bottom: 35px;
+            border: 1px solid var(--border-default);
+            display: flex;
+            flex-direction: column;
+            gap: 22px; /* More space between messages */
+            scroll-behavior: smooth;
+            transition: background-color var(--transition-duration) ease, border-color var(--transition-duration) ease;
+        }
+        
+        /* Custom Scrollbar (Webkit) */
+        .chat-container::-webkit-scrollbar {
+            width: 14px;
+        }
+        .chat-container::-webkit-scrollbar-track {
+            background: var(--bg-chat-input);
+            border-radius: 10px;
+        }
+        .chat-container::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 10px;
+            border: 3px solid var(--bg-chat-input); /* Creates a padded thumb */
+        }
+        .chat-container::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+
+        /* --- Messages --- */
+        .message {
+            max-width: 88%; /* Wider, more conversational bubbles */
+            padding: 20px 30px; /* More generous padding */
+            border-radius: var(--border-radius-lg);
+            line-height: 1.7;
+            position: relative;
+            word-wrap: break-word;
+            font-size: 19px;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-duration) ease;
+            /* Animation for message entry */
+            animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards; /* Springy animation */
+            opacity: 0; /* Start hidden for animation */
+        }
+        
+        .user-message {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            align-self: flex-end;
+            border-bottom-right-radius: var(--border-radius-sm); /* Tail effect */
+            animation-name: popInRight;
+            transform-origin: bottom right;
+        }
+
+        .bot-message {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-default);
+            color: var(--text-primary);
+            align-self: flex-start;
+            border-bottom-left-radius: var(--border-radius-sm); /* Tail effect */
+            animation-name: popInLeft;
+            transform-origin: bottom left;
+        }
+
+        @keyframes popInLeft {
+            from { opacity: 0; transform: translateX(-40px) scale(0.8); }
+            to { opacity: 1; transform: translateX(0) scale(1); }
+        }
+        @keyframes popInRight {
+            from { opacity: 0; transform: translateX(40px) scale(0.8); }
+            to { opacity: 1; transform: translateX(0) scale(1); }
+        }
+
+        /* Styling for content within messages */
+        .message p { margin-top: 10px; }
+        .message ul { margin-left: 30px; padding-left: 0; list-style-type: none; }
+        .message ul li { margin-bottom: 10px; display: flex; align-items: flex-start; gap: 12px; }
+        .message ul li i { 
+            color: var(--success-color); 
+            font-size: 1.3em; /* Larger check icon */
+            flex-shrink: 0; /* Prevent icon from shrinking */
+            margin-top: 2px; /* Align with text */
+        }
+        .message strong { font-weight: 700; color: var(--accent-color); }
+        .message i.fas:not(.typing-indicator):not(.fa-check-circle):not(.fa-circle) { margin-right: 12px; color: var(--primary-color); }
+        .message h3 { /* For parsed markdown H3 */
+            font-family: var(--font-heading);
+            font-size: 1.4em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            margin-top: 15px;
+            font-weight: 700;
+        }
+
+
+        .timestamp {
+            font-size: 0.8em;
+            color: var(--text-secondary);
+            margin-top: 10px;
+            display: block;
+            text-align: right;
+            opacity: 0.8;
+            font-weight: 500;
+        }
+
+        .bot-message .timestamp {
+            text-align: left;
+        }
+
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 14px 25px;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-default);
+            border-radius: var(--border-radius-full);
+            max-width: fit-content;
+            color: var(--text-secondary);
+            box-shadow: var(--shadow-sm);
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+        .typing-indicator i {
+            animation: bounce 1.2s infinite ease-in-out; /* Bouncing dots */
+            margin: 0 5px;
+            font-size: 1.2em;
+            color: var(--primary-color);
+        }
+        .typing-indicator i:nth-child(2) { animation-delay: 0.15s; }
+        .typing-indicator i:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* --- Input Area --- */
+        .input-area {
+            display: flex;
+            gap: 18px; /* More space between input and buttons */
+            align-items: flex-end;
+            padding-top: 25px;
+            border-top: 1px solid var(--border-default);
+            transition: border-color var(--transition-duration) ease;
+        }
+
+        #user-input {
+            flex: 1;
+            padding: 20px 30px;
+            border: 1px solid var(--border-default);
+            border-radius: var(--border-radius-full);
+            font-size: 19px;
+            resize: none;
+            min-height: 70px; /* Taller input */
+            max-height: 250px;
+            background-color: var(--bg-chat-input);
+            color: var(--text-primary);
+            transition: all var(--transition-duration) ease;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.03);
+            line-height: 1.5;
+        }
+
+        #user-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.05), 0 0 0 6px rgba(0, 123, 255, 0.15); /* Stronger, softer glow */
+        }
+        
+        /* --- Buttons --- */
+        #send-button, #upload-button {
+            padding: 0 30px;
+            height: 70px; /* Match input height */
+            border: none;
+            border-radius: var(--border-radius-full);
+            cursor: pointer;
+            font-size: 22px; /* Larger icons */
+            transition: all var(--transition-duration) cubic-bezier(0.165, 0.84, 0.44, 1); /* Faster, snappier */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            box-shadow: var(--shadow-sm);
+            font-weight: 600;
+        }
+
+        #send-button {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            background-image: var(--gradient-primary); /* Gradient for send button */
+            background-size: 200% auto;
+            background-position: left center;
+        }
+        #send-button:hover {
+            background-position: right center; /* Gradient hover effect */
+        }
+
+        #upload-button {
+            background-color: var(--warning-color);
+            color: var(--text-light);
+            background-image: var(--gradient-accent); /* Gradient for upload button */
+            background-size: 200% auto;
+            background-position: left center;
+        }
+        #upload-button:hover {
+            background-position: right center; /* Gradient hover effect */
+        }
+
+        #hospital-button {
+            background-color: var(--danger-color);
+            color: var(--text-light);
+            margin-top: 30px;
+            width: 100%;
+            font-weight: 700;
+            padding: 22px 28px;
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-duration) cubic-bezier(0.165, 0.84, 0.44, 1);
+            font-size: 21px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            letter-spacing: 1px;
+            text-transform: uppercase; /* More impactful */
+            border: 1px solid var(--danger-color); /* Subtle border for definition */
+            background-image: linear-gradient(135deg, var(--danger-color), #FF4D4D); /* Red gradient */
+            background-size: 200% auto;
+            background-position: left center;
+        }
+        #hospital-button:hover {
+            background-position: right center;
+        }
+
+        /* Universal Button Hover Effect for scale/shadow */
+        #send-button:hover, #upload-button:hover, #hospital-button:hover {
+            transform: translateY(-5px); /* Stronger lift */
+            box-shadow: var(--shadow-lg); /* More prominent shadow */
+            filter: brightness(1.1); /* Brighter effect */
+        }
+
+        #send-button:active, #upload-button:active, #hospital-button:active {
+            transform: scale(0.95); /* More pronounced click */
+            box-shadow: var(--shadow-sm); /* Shrinks shadow on click */
+        }
+
+        /* --- File Preview & Map --- */
+        .file-preview {
+            max-width: 100%;
+            max-height: 400px; /* Even taller preview */
+            margin-top: 20px;
+            border-radius: var(--border-radius-md);
+            object-fit: contain;
+            border: 1px solid var(--border-default);
+            box-shadow: var(--shadow-sm);
+            filter: grayscale(0.1); /* Subtle desaturation */
+            transition: filter 0.3s ease;
+        }
+        .file-preview:hover {
+            filter: grayscale(0); /* Full color on hover */
+        }
+
+        #map {
+            height: 400px; /* Taller map */
+            width: 100%;
+            margin-top: 25px;
+            border-radius: var(--border-radius-md);
+            border: 1px solid var(--border-default);
+            box-shadow: var(--shadow-md);
+            transition: border-color var(--transition-duration) ease, box-shadow var(--transition-duration) ease;
+        }
+
+        .hospital-info {
+            margin-top: 25px;
+            padding: 35px;
+            background-color: var(--bg-chat-input);
+            border-radius: var(--border-radius-md);
+            border: 1px solid var(--border-default);
+            transition: all var(--transition-duration) ease;
+            box-shadow: var(--shadow-md);
+            border-left: 5px solid var(--primary-color); /* Accent border */
+        }
+
+        .hospital-info h3 {
+            font-family: var(--font-heading);
+            color: var(--primary-color);
+            margin-bottom: 18px;
+            font-size: 28px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 700;
+        }
+
+        .hospital-info p {
+            margin-bottom: 12px;
+            color: var(--text-primary);
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+        }
+
+        .hospital-info p i {
+            color: var(--primary-color);
+            font-size: 1.2em;
+            flex-shrink: 0;
+        }
+        .hospital-info p a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease, text-decoration 0.2s ease;
+        }
+        .hospital-info p a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        /* --- Disclaimer --- */
+        .disclaimer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 16px;
+            color: var(--text-secondary);
+            padding-top: 30px;
+            border-top: 2px dashed var(--border-default); /* Thicker dashed border */
+            transition: border-color var(--transition-duration) ease, color var(--transition-duration) ease;
+            font-weight: 500;
+        }
+
+        .disclaimer i {
+            margin-right: 10px;
+            color: var(--accent-color);
+            font-size: 1.2em;
+            animation: pulseWarning 1.5s infinite ease-in-out; /* Subtle pulse */
+        }
+        @keyframes pulseWarning {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.9; }
+        }
+        
+        /* Progress Bar Styling (Highly Visual) */
+        .progress-bar-container {
+            height: 25px; /* Much taller bar */
+            background: var(--border-default);
+            margin: 18px 0;
+            border-radius: var(--border-radius-full);
+            overflow: hidden;
+            box-shadow: inset 0 2px 6px rgba(0,0,0,0.05);
+            transition: background var(--transition-duration) ease;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: var(--border-radius-full);
+            transition: width 1.5s cubic-bezier(0.23, 1, 0.32, 1), background 0.6s ease; /* Smoother, longer animation */
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 15px;
+            color: var(--text-light);
+            font-weight: 700; /* Bolder text */
+            font-size: 1em; /* Larger text */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* Text shadow for readability */
+        }
+        .progress-bar-fill.high-risk {
+            background: var(--danger-color);
+            background-image: linear-gradient(to right, var(--danger-color), #E57373); /* Gradient for risk */
+        }
+        .progress-bar-fill.low-risk {
+            background: var(--success-color);
+            background-image: linear-gradient(to right, var(--success-color), #81C784); /* Gradient for low risk */
+        }
+
+        /* Responsive Adjustments (Maximized for impact) */
+        @media (max-width: 992px) {
+            .container {
+                padding: 40px;
+            }
+            h1 { font-size: 44px; }
+            .subtitle { font-size: 19px; }
+            #dark-mode-toggle { font-size: 30px; padding: 14px; }
+            .chat-container { padding: 30px; gap: 20px; }
+            .message { font-size: 18px; padding: 18px 28px; }
+            .input-area { gap: 15px; padding-top: 20px; }
+            #user-input { font-size: 18px; min-height: 65px; padding: 18px 28px; }
+            #send-button, #upload-button { height: 65px; font-size: 20px; padding: 0 28px; }
+            #hospital-button { font-size: 20px; padding: 20px 25px; }
+            .hospital-info { padding: 30px; }
+            .hospital-info h3 { font-size: 26px; }
+            .hospital-info p { font-size: 17px; }
+            .disclaimer { font-size: 15px; }
+            .file-preview, #map { max-height: 350px; }
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 15px; }
+            .container { padding: 30px; border-radius: var(--border-radius-md); min-height: calc(100vh - 30px); }
+            h1 { font-size: 38px; gap: 15px; }
+            .subtitle { font-size: 17px; }
+            #dark-mode-toggle { top: 20px; right: 20px; font-size: 28px; padding: 12px; }
+            .chat-container { padding: 25px; gap: 18px; }
+            .message { font-size: 17px; padding: 16px 24px; }
+            .input-area { gap: 12px; padding-top: 18px; }
+            #user-input { font-size: 17px; min-height: 60px; padding: 16px 24px; }
+            #send-button, #upload-button { height: 60px; font-size: 19px; padding: 0 24px; }
+            #hospital-button { font-size: 19px; padding: 18px 22px; margin-top: 25px; }
+            .hospital-info { padding: 25px; }
+            .hospital-info h3 { font-size: 24px; }
+            .hospital-info p { font-size: 16px; }
+            .disclaimer { font-size: 14px; padding-top: 20px; margin-top: 25px; }
+            .file-preview, #map { max-height: 300px; }
+        }
+
+        @media (max-width: 500px) {
+            body { padding: 10px; }
+            .container { padding: 20px; border-radius: var(--border-radius-md); }
+            h1 { font-size: 32px; gap: 10px; }
+            .subtitle { font-size: 15px; }
+            #dark-mode-toggle { top: 10px; right: 10px; font-size: 25px; padding: 10px; }
+            .chat-container { padding: 15px; gap: 15px; }
+            .message { max-width: 98%; font-size: 15px; padding: 14px 20px; }
+            .input-area { flex-direction: column; align-items: stretch; gap: 10px; }
+            #user-input { width: 100%; min-height: 55px; font-size: 16px; padding: 14px 22px; }
+            #send-button, #upload-button { width: 100%; height: 55px; font-size: 18px; }
+            #hospital-button { font-size: 17px; padding: 16px 20px; margin-top: 18px; }
+            .hospital-info { padding: 18px; }
+            .hospital-info h3 { font-size: 20px; }
+            .hospital-info p { font-size: 14px; }
+            .disclaimer { font-size: 13px; padding-top: 15px; margin-top: 20px; }
+            .file-preview, #map { max-height: 250px; }
+        }
+        .chat-container {
+    flex: 1;
+    overflow-y: auto; /* Permitir desplazamiento vertical */
+    padding: 35px; /* Más espacio en el área de chat */
+    background-color: var(--bg-chat-input);
+    border-radius: var(--border-radius-md);
+    margin-bottom: 35px;
+    border: 1px solid var(--border-default);
+    display: flex;
+    flex-direction: column;
+    gap: 22px; /* Más espacio entre mensajes */
+    scroll-behavior: smooth;
+    transition: background-color var(--transition-duration) ease, border-color var(--transition-duration) ease;
+    max-height: 500px; /* Establecer una altura máxima para el contenedor */
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-hand-holding-heart"></i> SIAPRET</h1>
+            <p class="subtitle">Sistema de Inteligencia Artificial para el Prediagnóstico de Tuberculosis</p>
+            <button id="dark-mode-toggle" aria-label="Cambiar modo oscuro">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+        
+        <div class="chat-container" id="chat-container">
+            <div class="message bot-message">
+                <div><strong>¡Bienvenido a SIAPRET!</strong> Soy una Inteligencia Artificial desarrollada por alumnos del CBTIS 103, diseñado para brindarte apoyo en la predicción del riesgo de tuberculosis. Para comenzar, por favor:</div>
+                <p><br>
+                    <li><i class="fas fa-comment-medical"></i> Describe tus síntomas: Sé lo más detallado posible (ej. "Llevo tres semanas con tos seca, tengo fiebre baja por las noches y sudores nocturnos intensos, además he perdido el apetito.").</li>
+                    <li><i class="fas fa-file-invoice"></i> Sube un PDF de tus estudios: Adjunta resultados de laboratorio, informes médicos o cualquier historial relevante.</li>
+                    <li><i class="fas fa-x-ray"></i> Envía tu radiografía de tórax: Una imagen (JPG o PNG) nos ayudará a realizar un análisis visual preliminar.</li>
+                </p>
+            </div>
+        </div>
+        
+        <div class="input-area">
+            <textarea id="user-input" placeholder="Comienza a describir tus síntomas o adjunta un archivo..."></textarea>
+            <button id="upload-button" title="Adjuntar archivo (PDF o imagen)">
+                <i class="fas fa-paperclip"></i>
+            </button>
+            <button id="send-button" title="Enviar mensaje">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+            <input type="file" id="file-input" accept=".pdf,.jpg,.jpeg,.png" style="display: none;">
+        </div>
+        
+        <button id="hospital-button">
+            <i class="fas fa-hospital-user"></i> Encontrar centro médico especializado cercano
+        </button>
+        
+        <div class="disclaimer">
+            <p><i class="fas fa-shield-alt"></i> Importante: SIAPRET es una herramienta de apoyo a la decisión y NO ES UN SUSTITUTO DEL DIAGNÓSTICO O TRATAMIENTO MÉDICO PROFESIONAL. Consulta siempre a un médico calificado para cualquier problema de salud. Tu bienestar es nuestra prioridad.</p>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatContainer = document.getElementById('chat-container');
+            const userInput = document.getElementById('user-input');
+            const sendButton = document.getElementById('send-button');
+            const uploadButton = document.getElementById('upload-button');
+            const fileInput = document.getElementById('file-input');
+            const hospitalButton = document.getElementById('hospital-button');
+            const darkModeToggle = document.getElementById('dark-mode-toggle');
+            const BACKEND_URL = 'http://localhost:5000'; // Make sure your backend is running on this URL
+
+            // Configure marked.js for custom rendering (especially for h3)
+            marked.setOptions({
+                renderer: new marked.Renderer(),
+                gfm: true, // Enable GitHub Flavored Markdown
+                breaks: true // Enable GFM line breaks
+            });
+            // Override the heading rendering to convert H3 to strong for inline text
+            marked.Renderer.prototype.heading = function (text, level) {
+                if (level === 3) { // Convert H3 to strong bold text
+                    return `<strong>${text}</strong>\n`;
+                }
+                return `<h${level}>${text}</h${level}>\n`;
+            };
+
+            // --- Dark Mode Functionality ---
+            function toggleDarkMode() {
+                document.body.classList.toggle('dark-mode');
+                if (document.body.classList.contains('dark-mode')) {
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                }
+            }
+
+            if (localStorage.getItem('theme') === 'dark') {
+                document.body.classList.add('dark-mode');
+            }
+
+            darkModeToggle.addEventListener('click', toggleDarkMode);
+
+            // --- Auto-adjust textarea height ---
+            userInput.addEventListener('input', function() {
+                this.style.height = 'auto';
+                this.style.height = (this.scrollHeight) + 'px';
+            });
+            
+            // --- Send Message on Button Click or Enter Key ---
+            sendButton.addEventListener('click', sendMessage);
+            userInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' && !e.shiftKey) { // Shift+Enter for new line
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
+            
+            // --- Handle File Upload ---
+            uploadButton.addEventListener('click', function() {
+                fileInput.click();
+            });
+            
+            fileInput.addEventListener('change', function(e) {
+                if (e.target.files.length > 0) {
+                    handleFileUpload(e.target.files[0]);
+                }
+            });
+            
+            // --- Find Nearest Hospital ---
+            hospitalButton.addEventListener('click', findNearestHospital);
+            
+            // --- Add Message to Chat Function ---
+            function addMessage(content, isUser = false, isHTML = false) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+                
+                if (isHTML) {
+                    messageDiv.innerHTML = content;
+                } else {
+                    messageDiv.textContent = content;
+                }
+
+                const timestampSpan = document.createElement('span');
+                timestampSpan.className = 'timestamp';
+                const now = new Date();
+                timestampSpan.textContent = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
+                messageDiv.appendChild(timestampSpan);
+                
+                chatContainer.appendChild(messageDiv);
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+                return messageDiv;
+            }
+            
+            // --- Send Text Message to Backend ---
+            async function sendMessage() {
+                const text = userInput.value.trim();
+                if (!text) return;
+                
+                addMessage(text, true);
+                userInput.value = '';
+                userInput.style.height = 'auto';
+
+                const typingIndicator = addMessage('<span class="typing-indicator"><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i> Analizando sus datos...</span>', false, true);
+                
+                try {
+                    const response = await fetch(`${BACKEND_URL}/analyze`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: `text=${encodeURIComponent(text)}`
+                    });
+                    
+                    const data = await response.json();
+                    chatContainer.removeChild(typingIndicator);
+                    displayAnalysisResult(data);
+                } catch (error) {
+                    chatContainer.removeChild(typingIndicator);
+                    addMessage(`**Error de conexión:** No pudimos contactar con el servidor de SIAPRET. Por favor, asegúrate de que el backend está operativo y tu conexión a internet es estable. Detalle: _${error.message}_`, false, true);
+                }
+            }
+            
+            // --- Handle File Upload to Backend ---
+            async function handleFileUpload(file) {
+                const validTypes = ['application/pdf', 'image/jpeg', 'image/png'];
+                if (!validTypes.includes(file.type)) {
+                    addMessage('**Archivo no válido:** Por favor, sube un PDF, JPG o PNG. Otros formatos no son compatibles.', false, true);
+                    return;
+                }
+                
+                // Display user's file message
+                if (file.type.includes('image')) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        addMessage(`
+                            <div>Archivo subido: **${file.name}**</div>
+                            <img src="${e.target.result}" class="file-preview" alt="Previsualización de imagen">
+                        `, true, true);
+                    };
+                    reader.readAsDataURL(file);
+                } else { // For PDF
+                    addMessage(`Archivo subido: **${file.name}**`, true, true);
+                }
+
+                const processingIndicator = addMessage('<span class="typing-indicator"><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i> Analizando el documento...</span>', false, true);
+
+                const formData = new FormData();
+                formData.append('file', file);
+                
+                try {
+                    const response = await fetch(`${BACKEND_URL}/analyze`, {
+                        method: 'POST',
+                        body: formData
+                    });
+                    
+                    const data = await response.json();
+                    chatContainer.removeChild(processingIndicator);
+                    displayAnalysisResult(data);
+                } catch (error) {
+                    chatContainer.removeChild(processingIndicator);
+                    addMessage(`Error al procesar archivo: No se pudo analizar el contenido. Intenta con otro archivo o verifica su formato. Detalle: _${error.message}_`, false, true);
+                } finally {
+                    fileInput.value = ''; // Clear file input
+                }
+            }
+            
+            // --- Display Analysis Results from Backend ---
+            function displayAnalysisResult(data) {
+                if (data.error) {
+                    addMessage(`Error del sistema: ${data.error}`, false, true);
+                    return;
+                }
+                
+                let resultHTML = '';
+                
+                if (data.type === 'text' || data.type === 'pdf') {
+                    const percentage = Math.round(data.probability * 100);
+                    const riskColorClass = percentage > 50 ? 'high-risk' : 'low-risk';
+                    const riskText = percentage > 50 ? 'Alto Riesgo de TB' : 'Bajo Riesgo de TB';
+                    const recommendationText = percentage > 50 
+                        ? '### **¡URGENTE! Consulta Médica Inmediata**\nLos resultados sugieren un **riesgo SIGNIFICATIVO** de tuberculosis. Es **CRUCIAL** que busques atención médica profesional sin demora para un diagnóstico y tratamiento adecuados. No esperes.'
+                        : '### **Evaluación de Bajo Riesgo**\nTu probabilidad de tuberculosis es baja según la información proporcionada. Sin embargo, si los síntomas persisten o tienes preocupaciones, siempre es prudente consultar a un médico.';
+
+                    resultHTML = `
+                        <div>
+                            <p><strong>Análisis de ${data.type === 'pdf' ? 'Estudios Médicos' : 'Síntomas'}:</strong></p>
+                            <div style="margin-top: 12px; font-size: 1.1em;">Probabilidad Estimada de Tuberculosis: <strong style="color: var(--text-primary);">${percentage}%</strong></div>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar-fill ${riskColorClass}" style="width: ${percentage > 0 ? percentage : 10}%;">${percentage}%</div>
+                            </div>
+                            <div style="font-size: 1.05em; color: var(--text-secondary); margin-top: 20px; font-weight: 500;">${marked.parse(recommendationText)}</div>
+                        </div>
+                    `;
+                    
+                    if (data.symptoms && data.symptoms.length > 0) {
+                        resultHTML += `
+                            <div style="margin-top: 30px; font-weight: 600;">Síntomas detectados en tu descripción:</div>
+                            <ul style="margin-top: 12px;">${data.symptoms.map(s => `<li><i class="fas fa-check-double"></i> ${s}</li>`).join('')}</ul>
+                        `;
+                    }
+                    
+                    if (data.type === 'pdf' && data.extracted_text) {
+                        resultHTML += `<div style="margin-top: 30px; font-style: italic; font-size: 0.9em; color: var(--text-secondary); border-top: 1px dashed var(--border-default); padding-top: 20px;">**Extracto relevante del PDF analizado:** "_${data.extracted_text.substring(0, 300)}..._"</div>`;
+                    }
+                } 
+                else if (data.type === 'image') {
+                    const diagnosis = data.probability > 0.5 ? 'Posible Indicación de TB' : 'Radiografía de Tórax Normal';
+                    const color = data.probability > 0.5 ? 'var(--danger-color)' : 'var(--success-color)';
+                    const advice = data.probability > 0.5 
+                        ? '### **Resultado del Análisis de Imagen: ¡Acción Requerida!**\nLa radiografía analizada presenta patrones que **podrían ser indicativos de tuberculosis**. Es **IMPERATIVO** que un médico especialista (neumólogo) revise esta imagen y ordene pruebas confirmatorias de inmediato.'
+                        : '### **Radiografía Analizada: Sin Hallazgos Anormales**\nLa radiografía de tórax parece normal según nuestro análisis computarizado. Recuerda que esta es una evaluación preliminar; si tus síntomas persisten, busca asesoramiento médico.';
+                    
+                    resultHTML = `
+                        <div>
+                            <p><strong>Análisis de Radiografía de Tórax:</strong></p>
+                            <div style="margin-top: 12px; font-size: 1.1em;">Diagnóstico Preliminar del Modelo: <span style="color: ${color}; font-weight: bold;">${diagnosis}</span></div>
+                            <div style="margin-top: 5px;">Nivel de Confianza del Modelo: <strong style="color: ${color};">${Math.round(data.probability * 100)}%</strong></div>
+                            <div style="font-size: 1.05em; margin-top: 20px; color: var(--text-secondary); font-weight: 500;">${marked.parse(advice)}</div>
+                        </div>
+                    `;
+                }
+                
+                addMessage(resultHTML, false, true);
+            }
+            
+            // --- Find Nearest Hospital Function ---
+            async function findNearestHospital() {
+                addMessage('Iniciando búsqueda de centros médicos especializados cercanos...', false);
+                
+                if (!navigator.geolocation) {
+                    addMessage('**Error de Geolocalización:** Tu navegador no soporta esta función o los servicios de ubicación están deshabilitados. Por favor, habilítalos en la configuración de tu dispositivo.', false, true);
+                    return;
+                }
+                
+                const searchingMapIndicator = addMessage('<span class="typing-indicator"><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i> Obteniendo tu ubicación exacta y buscando hospitales...</span>', false, true);
+
+                try {
+                    const position = await new Promise((resolve, reject) => {
+                        navigator.geolocation.getCurrentPosition(resolve, reject, {
+                            enableHighAccuracy: true, // Request most precise location
+                            timeout: 20000, // Increased timeout for better chance
+                            maximumAge: 0 // Get fresh location
+                        });
+                    });
+                    
+                    const { latitude, longitude } = position.coords;
+                    addMessage(`Tu ubicación actual: **Lat: ${latitude.toFixed(5)}, Lon: ${longitude.toFixed(5)}**`, true, true);
+                    
+                    const response = await fetch(`${BACKEND_URL}/find-hospital`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            lat: latitude,
+                            lon: longitude
+                        })
+                    });
+                    
+                    const hospital = await response.json();
+                    chatContainer.removeChild(searchingMapIndicator);
+                    
+                    if (hospital.error) {
+                        addMessage(`**No se encontró hospital:** ${hospital.error}. Intenta moverte a una ubicación con mejor señal GPS o revisa tus permisos de ubicación.`, false, true);
+                        return;
+                    }
+                    
+                    const hospitalHTML = `
+                        <div class="hospital-info">
+                            <h3><i class="fas fa-hospital-alt"></i> ${hospital.name}</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> **Dirección:** ${hospital.address}</p>
+                            <p><i class="fas fa-route"></i> **Distancia:** <strong style="color: var(--primary-color);">${hospital.distance.toFixed(2)} km</strong></p>
+                            <p><i class="fas fa-phone-volume"></i> **Teléfono:** <a href="tel:${hospital.phone}" target="_blank">${hospital.phone || 'No disponible'}</a></p>
+                            <p><i class="fas fa-stethoscope"></i> **Especialidad Sugerida:** Neumología / Infectología (Confirmar)</p>
+                            <div id="map" style="height: 400px; border-radius: var(--border-radius-md); margin-top: 25px;"></div>
+                        </div>
+                    `;
+                    
+                    const messageElementWithMap = addMessage(hospitalHTML, false, true);
+                    
+                    setTimeout(() => {
+                        const mapElement = messageElementWithMap.querySelector('#map');
+                        if (mapElement) {
+                            const map = L.map(mapElement).setView([hospital.lat, hospital.lon], 15);
+                            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                            }).addTo(map);
+                            L.marker([hospital.lat, hospital.lon]).addTo(map)
+                                .bindPopup(`<strong>${hospital.name}</strong><br>${hospital.address}<br>${hospital.phone || ''}`)
+                                .openPopup();
+                            map.invalidateSize();
+                        }
+                    }, 100);
+                    
+                } catch (error) {
+                    chatContainer.removeChild(searchingMapIndicator);
+                    let errorMessage = '**Error al obtener ubicación:** ';
+                    if (error.code === error.PERMISSION_DENIED) {
+                        errorMessage += 'Necesitamos tu permiso para acceder a la ubicación. Revoca y otorga el permiso de nuevo.';
+                    } else if (error.code === error.POSITION_UNAVAILABLE) {
+                        errorMessage += 'Tu ubicación no está disponible. Intenta en un lugar con mejor cobertura.';
+                    } else if (error.code === error.TIMEOUT) {
+                        errorMessage += 'La búsqueda de ubicación ha tardado demasiado. Intenta de nuevo.';
+                    } else {
+                        errorMessage += `Ha ocurrido un problema inesperado: _${error.message}_`;
+                    }
+                    addMessage(errorMessage, false, true);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

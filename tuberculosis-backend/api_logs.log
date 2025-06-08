@@ -1,0 +1,136 @@
+2025-05-10 21:23:16,603 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.6:5000
+2025-05-10 21:23:16,604 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-10 21:23:25,299 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:23:25] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-10 21:23:25,548 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:23:25] "[31m[1mPOST /analyze-text HTTP/1.1[0m" 400 -
+2025-05-10 21:23:30,570 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:23:30] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-10 21:23:30,882 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:23:30] "[31m[1mPOST /analyze-text HTTP/1.1[0m" 400 -
+2025-05-10 21:27:02,928 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:27:02] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-10 21:27:03,198 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:27:03] "[31m[1mPOST /analyze-text HTTP/1.1[0m" 400 -
+2025-05-10 21:27:09,658 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:27:09] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-10 21:27:10,111 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:27:10] "[35m[1mPOST /analyze-text HTTP/1.1[0m" 500 -
+2025-05-10 21:27:49,149 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.6:5000
+2025-05-10 21:27:49,152 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-10 21:28:03,340 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:28:03] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-10 21:28:03,725 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:28:03] "[35m[1mPOST /analyze-text HTTP/1.1[0m" 500 -
+2025-05-10 21:31:40,439 - __main__ - INFO - ✅ Modelo cargado correctamente
+2025-05-10 21:31:40,440 - __main__ - INFO - ⚙️ Parámetros del modelo: {'vectorizer__ngram_range': (2, 2), 'vectorizer__min_df': 4, 'vectorizer__max_df': 0.8, 'classifier__alpha': np.float64(0.1)}
+2025-05-10 21:31:40,441 - __main__ - INFO - 📊 Distribución de clases: [7000 3000]
+2025-05-10 21:31:40,475 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.6:5000
+2025-05-10 21:31:40,477 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-10 21:31:45,604 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:31:45] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-10 21:31:45,868 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:31:45] "[31m[1mPOST /analyze-text HTTP/1.1[0m" 400 -
+2025-05-10 21:31:48,394 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:31:48] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-10 21:31:48,727 - __main__ - INFO - 📩 Texto recibido (20 caracteres): tengo tos con sangre...
+2025-05-10 21:31:48,728 - __main__ - INFO - 🔄 Texto procesado: tengo tos sangre...
+2025-05-10 21:31:48,730 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:31:48] "POST /analyze-text HTTP/1.1" 200 -
+2025-05-10 21:31:58,386 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:31:58] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-10 21:31:58,713 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:31:58] "[31m[1mPOST /analyze-text HTTP/1.1[0m" 400 -
+2025-05-10 21:32:05,826 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:32:05] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-10 21:32:06,150 - __main__ - INFO - 📩 Texto recibido (29 caracteres): me siento sano a decir verdad...
+2025-05-10 21:32:06,151 - __main__ - INFO - 🔄 Texto procesado: siento sano decir verdad...
+2025-05-10 21:32:06,153 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:32:06] "POST /analyze-text HTTP/1.1" 200 -
+2025-05-10 21:32:11,739 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:32:11] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-10 21:32:12,061 - __main__ - INFO - 📩 Texto recibido (14 caracteres): me siento bien...
+2025-05-10 21:32:12,062 - __main__ - INFO - 🔄 Texto procesado: siento bien...
+2025-05-10 21:32:12,065 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:32:12] "POST /analyze-text HTTP/1.1" 200 -
+2025-05-10 21:32:12,678 - werkzeug - INFO - 192.168.1.6 - - [10/May/2025 21:32:12] "[33mGET / HTTP/1.1[0m" 404 -
+2025-05-10 21:32:14,571 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:32:14] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-10 21:32:14,900 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:32:14] "[31m[1mPOST /analyze-text HTTP/1.1[0m" 400 -
+2025-05-10 21:32:18,370 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:32:18] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-10 21:32:18,702 - __main__ - INFO - 📩 Texto recibido (13 caracteres): nada por aqui...
+2025-05-10 21:32:18,703 - __main__ - INFO - 🔄 Texto procesado: nada aqui...
+2025-05-10 21:32:18,705 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:32:18] "POST /analyze-text HTTP/1.1" 200 -
+2025-05-10 21:32:19,032 - werkzeug - INFO - 192.168.1.6 - - [10/May/2025 21:32:19] "[33mGET / HTTP/1.1[0m" 404 -
+2025-05-10 21:32:19,097 - werkzeug - INFO - 192.168.1.6 - - [10/May/2025 21:32:19] "[33mGET /loginMsg.js HTTP/1.1[0m" 404 -
+2025-05-10 21:32:19,107 - werkzeug - INFO - 192.168.1.6 - - [10/May/2025 21:32:19] "[33mGET /cgi/get.cgi?cmd=home_login HTTP/1.1[0m" 404 -
+2025-05-10 21:32:22,072 - werkzeug - INFO - 192.168.1.6 - - [10/May/2025 21:32:22] "[33mPOST / HTTP/1.1[0m" 404 -
+2025-05-10 21:40:41,588 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:40:41] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-10 21:40:41,839 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:40:41] "[31m[1mPOST /analyze-text HTTP/1.1[0m" 400 -
+2025-05-10 21:40:49,074 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:40:49] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-10 21:40:49,407 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:40:49] "[31m[1mPOST /analyze-text HTTP/1.1[0m" 400 -
+2025-05-10 21:40:53,852 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:40:53] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-10 21:40:54,172 - __main__ - INFO - 📩 Texto recibido (28 caracteres): me encuentro totalmente sano...
+2025-05-10 21:40:54,173 - __main__ - INFO - 🔄 Texto procesado: encuentro totalmente sano...
+2025-05-10 21:40:54,175 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:40:54] "POST /analyze-text HTTP/1.1" 200 -
+2025-05-10 21:41:00,266 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:41:00] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-10 21:41:00,602 - __main__ - INFO - 📩 Texto recibido (29 caracteres): me encuentro totalmente grave...
+2025-05-10 21:41:00,602 - __main__ - INFO - 🔄 Texto procesado: encuentro totalmente grave...
+2025-05-10 21:41:00,604 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:41:00] "POST /analyze-text HTTP/1.1" 200 -
+2025-05-10 21:41:26,099 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:41:26] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-10 21:41:26,435 - __main__ - INFO - 📩 Texto recibido (92 caracteres): tos con sangre, dolor en el pecho, me canso demasiado y tengo demasiado sudor por las noches...
+2025-05-10 21:41:26,436 - __main__ - INFO - 🔄 Texto procesado: tos sangre dolor pecho canso demasiado tengo demasiado sudor noches...
+2025-05-10 21:41:26,438 - werkzeug - INFO - 127.0.0.1 - - [10/May/2025 21:41:26] "POST /analyze-text HTTP/1.1" 200 -
+2025-05-13 23:18:46,719 - __main__ - INFO - ✅ Modelo cargado correctamente
+2025-05-13 23:18:46,721 - __main__ - INFO - ⚙️ Parámetros del modelo: {'vectorizer__ngram_range': (2, 2), 'vectorizer__min_df': 4, 'vectorizer__max_df': 0.8, 'classifier__alpha': np.float64(0.1)}
+2025-05-13 23:18:46,722 - __main__ - INFO - 📊 Distribución de clases: [7000 3000]
+2025-05-13 23:18:47,661 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.6:5000
+2025-05-13 23:18:47,662 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-13 23:21:07,079 - werkzeug - INFO - 127.0.0.1 - - [13/May/2025 23:21:07] "[31m[1mGET /analyze-text HTTP/1.1[0m" 405 -
+2025-05-13 23:21:10,451 - werkzeug - INFO - 127.0.0.1 - - [13/May/2025 23:21:10] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-13 23:21:10,666 - werkzeug - INFO - 127.0.0.1 - - [13/May/2025 23:21:10] "[31m[1mGET /analyze-text HTTP/1.1[0m" 405 -
+2025-05-13 23:21:30,998 - werkzeug - INFO - 127.0.0.1 - - [13/May/2025 23:21:30] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-13 23:21:31,263 - werkzeug - INFO - 127.0.0.1 - - [13/May/2025 23:21:31] "[31m[1mPOST /analyze-text HTTP/1.1[0m" 400 -
+2025-05-13 23:21:44,054 - werkzeug - INFO - 127.0.0.1 - - [13/May/2025 23:21:44] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-13 23:21:44,317 - __main__ - INFO - 📩 Texto recibido (48 caracteres): tengo tos con un poco de sangre y dolor de pecho...
+2025-05-13 23:21:44,318 - __main__ - INFO - 🔄 Texto procesado: tengo tos poco sangre dolor pecho...
+2025-05-13 23:21:44,329 - werkzeug - INFO - 127.0.0.1 - - [13/May/2025 23:21:44] "POST /analyze-text HTTP/1.1" 200 -
+2025-05-13 23:22:28,059 - werkzeug - INFO - 127.0.0.1 - - [13/May/2025 23:22:28] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-13 23:22:28,322 - __main__ - INFO - 📩 Texto recibido (99 caracteres): tengo tos con un poco de sangre, me duele el pecho y tengo un sudor excesivo lol creo q voy a morir...
+2025-05-13 23:22:28,323 - __main__ - INFO - 🔄 Texto procesado: tengo tos poco sangre duele pecho tengo sudor excesivo lol creo voy morir...
+2025-05-13 23:22:28,325 - werkzeug - INFO - 127.0.0.1 - - [13/May/2025 23:22:28] "POST /analyze-text HTTP/1.1" 200 -
+2025-05-24 15:31:27,003 - __main__ - INFO - ✅ Modelo cargado correctamente
+2025-05-24 15:31:27,007 - __main__ - INFO - ⚙️ Parámetros del modelo: {'vectorizer__ngram_range': (2, 2), 'vectorizer__min_df': 4, 'vectorizer__max_df': 0.8, 'classifier__alpha': np.float64(0.1)}
+2025-05-24 15:31:27,008 - __main__ - INFO - 📊 Distribución de clases: [7000 3000]
+2025-05-24 15:31:28,020 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.6:5000
+2025-05-24 15:31:28,060 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-24 15:31:42,544 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 15:31:42] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-24 15:31:42,817 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 15:31:42] "[31m[1mPOST /analyze-text HTTP/1.1[0m" 400 -
+2025-05-24 15:31:46,636 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 15:31:46] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-24 15:31:46,973 - __main__ - INFO - 📩 Texto recibido (14 caracteres): que tal estais...
+2025-05-24 15:31:46,974 - __main__ - INFO - 🔄 Texto procesado: tal estais...
+2025-05-24 15:31:46,983 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 15:31:46] "POST /analyze-text HTTP/1.1" 200 -
+2025-05-24 15:32:05,458 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 15:32:05] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-24 15:32:05,718 - __main__ - INFO - 📩 Texto recibido (71 caracteres): tengo tos con un poco de sangre y ademas vomito o toso pedazos de carne...
+2025-05-24 15:32:05,718 - __main__ - INFO - 🔄 Texto procesado: tengo tos poco sangre ademas vomito toso pedazos carne...
+2025-05-24 15:32:05,721 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 15:32:05] "POST /analyze-text HTTP/1.1" 200 -
+2025-05-24 15:32:11,290 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 15:32:11] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-24 15:32:11,551 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 15:32:11] "[31m[1mPOST /analyze-text HTTP/1.1[0m" 400 -
+2025-05-24 15:32:14,972 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 15:32:14] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-24 15:32:15,300 - __main__ - INFO - 📩 Texto recibido (20 caracteres): tengo un poco de tos...
+2025-05-24 15:32:15,301 - __main__ - INFO - 🔄 Texto procesado: tengo poco tos...
+2025-05-24 15:32:15,303 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 15:32:15] "POST /analyze-text HTTP/1.1" 200 -
+2025-05-24 15:32:20,661 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 15:32:20] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-24 15:32:20,985 - __main__ - INFO - 📩 Texto recibido (19 caracteres): no me podrias decir...
+2025-05-24 15:32:20,989 - __main__ - INFO - 🔄 Texto procesado: podrias decir...
+2025-05-24 15:32:20,992 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 15:32:20] "POST /analyze-text HTTP/1.1" 200 -
+2025-05-24 15:32:33,748 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 15:32:33] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-24 15:32:33,990 - __main__ - INFO - 📩 Texto recibido (47 caracteres): no me podrias decir que sintomas tengo porfavor...
+2025-05-24 15:32:33,991 - __main__ - INFO - 🔄 Texto procesado: podrias decir sintomas tengo porfavor...
+2025-05-24 15:32:33,995 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 15:32:33] "POST /analyze-text HTTP/1.1" 200 -
+2025-05-24 15:34:58,549 - __main__ - INFO - ✅ Modelo cargado correctamente
+2025-05-24 15:34:58,551 - __main__ - INFO - ⚙️ Parámetros del modelo: {'vectorizer__ngram_range': (2, 2), 'vectorizer__min_df': 4, 'vectorizer__max_df': 0.8, 'classifier__alpha': np.float64(0.1)}
+2025-05-24 15:34:58,552 - __main__ - INFO - 📊 Distribución de clases: [7000 3000]
+2025-05-24 15:34:59,437 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.6:5000
+2025-05-24 15:34:59,438 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-24 15:35:42,071 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 15:35:42] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-24 15:35:42,330 - __main__ - INFO - 📩 Texto recibido (123 caracteres): tengo un poco de tos con sangre, sudoración excesiva y además he perdido peso, y tos persistente por...
+2025-05-24 15:35:42,334 - __main__ - INFO - 🔄 Texto procesado: tengo poco tos sangre sudoración excesiva además perdido peso tos persistente poco mas semanas...
+2025-05-24 15:35:42,337 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 15:35:42] "POST /analyze-text HTTP/1.1" 200 -

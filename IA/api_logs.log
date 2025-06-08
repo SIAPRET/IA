@@ -1,0 +1,285 @@
+2025-05-24 16:27:12,372 - __main__ - ERROR - ❌ Error cargando modelo: [Errno 2] No such file or directory: 'modelo_tb.pkl'
+2025-05-24 16:28:09,519 - __main__ - INFO - ✅ Modelo cargado correctamente
+2025-05-24 16:28:09,519 - __main__ - INFO - ⚙️ Parámetros del modelo: {'vectorizer__ngram_range': (2, 2), 'vectorizer__min_df': 4, 'vectorizer__max_df': 0.8, 'classifier__alpha': 0.1}
+2025-05-24 16:28:09,520 - __main__ - INFO - 📊 Distribución de clases: [7000 3000]
+2025-05-24 16:28:10,411 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.6:5000
+2025-05-24 16:28:10,411 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-24 16:28:30,929 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 16:28:30] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-24 16:28:31,194 - __main__ - INFO - 📩 Texto recibido (28 caracteres): tengo tos persistente chaval...
+2025-05-24 16:28:31,194 - __main__ - INFO - 🔄 Texto procesado: tengo tos persistente chaval...
+2025-05-24 16:28:31,197 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 16:28:31] "POST /analyze-text HTTP/1.1" 200 -
+2025-05-24 16:28:45,304 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 16:28:45] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-24 16:28:45,551 - __main__ - INFO - 📩 Texto recibido (29 caracteres): persistente, sangre, nocturna...
+2025-05-24 16:28:45,552 - __main__ - INFO - 🔄 Texto procesado: persistente sangre nocturna...
+2025-05-24 16:28:45,553 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 16:28:45] "POST /analyze-text HTTP/1.1" 200 -
+2025-05-24 16:46:35,988 - __main__ - INFO - ✅ Modelo cargado correctamente
+2025-05-24 16:46:35,989 - __main__ - INFO - ⚙️ Parámetros del modelo: {'vectorizer__ngram_range': (2, 2), 'vectorizer__min_df': 4, 'vectorizer__max_df': 0.8, 'classifier__alpha': 0.1}
+2025-05-24 16:46:35,990 - __main__ - INFO - 📊 Distribución de clases: [7000 3000]
+2025-05-24 16:46:37,055 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.6:5000
+2025-05-24 16:46:37,056 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-24 16:46:55,935 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 16:46:55] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-24 16:46:56,169 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 16:46:56] "[31m[1mPOST /analyze-text HTTP/1.1[0m" 400 -
+2025-05-24 16:47:00,663 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 16:47:00] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-24 16:47:00,928 - __main__ - INFO - 📩 Texto recibido (14 caracteres): tengo tos creo...
+2025-05-24 16:47:00,929 - __main__ - INFO - 🔄 Texto procesado: tengo tos creo...
+2025-05-24 16:47:00,942 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 16:47:00] "POST /analyze-text HTTP/1.1" 200 -
+2025-05-24 16:48:19,356 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 16:48:19] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-24 16:48:19,616 - __main__ - INFO - 📩 Texto recibido (20 caracteres): tengo tos con sangre...
+2025-05-24 16:48:19,617 - __main__ - INFO - 🔄 Texto procesado: tengo tos sangre...
+2025-05-24 16:48:19,621 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 16:48:19] "POST /analyze-text HTTP/1.1" 200 -
+2025-05-24 16:49:01,081 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 16:49:01] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-24 16:49:01,345 - __main__ - INFO - 📩 Texto recibido (65 caracteres): tos con sangre persistente, ademas vomité un pedazo de carne ayer...
+2025-05-24 16:49:01,346 - __main__ - INFO - 🔄 Texto procesado: tos sangre persistente ademas vomité pedazo carne ayer...
+2025-05-24 16:49:01,349 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 16:49:01] "POST /analyze-text HTTP/1.1" 200 -
+2025-05-24 16:49:24,359 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 16:49:24] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-24 16:49:24,624 - __main__ - INFO - 📩 Texto recibido (64 caracteres): tengo tos con sudoracion nocturna excesiva, ademas tengo fatiga....
+2025-05-24 16:49:24,625 - __main__ - INFO - 🔄 Texto procesado: tengo tos sudoracion nocturna excesiva ademas tengo fatiga...
+2025-05-24 16:49:24,627 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 16:49:24] "POST /analyze-text HTTP/1.1" 200 -
+2025-05-24 16:50:09,927 - __main__ - INFO - ✅ Modelo cargado correctamente
+2025-05-24 16:50:09,928 - __main__ - INFO - ⚙️ Parámetros del modelo: {'vectorizer__ngram_range': (2, 2), 'vectorizer__min_df': 4, 'vectorizer__max_df': 0.8, 'classifier__alpha': 0.1}
+2025-05-24 16:50:09,933 - __main__ - INFO - 📊 Distribución de clases: [7000 3000]
+2025-05-24 16:50:10,851 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.6:5000
+2025-05-24 16:50:10,855 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-24 16:50:32,617 - werkzeug - INFO - 192.168.1.3 - - [24/May/2025 16:50:32] "[33mGET / HTTP/1.1[0m" 404 -
+2025-05-24 16:50:32,755 - werkzeug - INFO - 192.168.1.3 - - [24/May/2025 16:50:32] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-24 16:51:50,482 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 16:51:50] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-24 16:51:50,745 - __main__ - INFO - 📩 Texto recibido (82 caracteres): Tengo tos persistente por más de 2 semanas, a veces con sangre, y he perdido peso....
+2025-05-24 16:51:50,746 - __main__ - INFO - 🔄 Texto procesado: tengo tos persistente más semanas veces sangre perdido peso...
+2025-05-24 16:51:50,751 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 16:51:50] "POST /analyze-text HTTP/1.1" 200 -
+2025-05-24 16:52:26,101 - __main__ - INFO - 📩 Texto recibido (19 caracteres): pues me siento sano...
+2025-05-24 16:52:26,102 - __main__ - INFO - 🔄 Texto procesado: pues siento sano...
+2025-05-24 16:52:26,106 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 16:52:26] "POST /analyze-text HTTP/1.1" 200 -
+2025-05-24 16:52:58,284 - __main__ - INFO - 📩 Texto recibido (81 caracteres): Tengo tos persistente por más de 2 semanas, ademas con sangre, y he perdido peso....
+2025-05-24 16:52:58,293 - __main__ - INFO - 🔄 Texto procesado: tengo tos persistente más semanas ademas sangre perdido peso...
+2025-05-24 16:52:58,295 - werkzeug - INFO - 127.0.0.1 - - [24/May/2025 16:52:58] "POST /analyze-text HTTP/1.1" 200 -
+2025-05-29 16:12:28,078 - __main__ - INFO - ✅ Modelo cargado correctamente
+2025-05-29 16:12:28,080 - __main__ - INFO - ⚙️ Parámetros del modelo: {'vectorizer__ngram_range': (2, 2), 'vectorizer__min_df': 4, 'vectorizer__max_df': 0.8, 'classifier__alpha': 0.1}
+2025-05-29 16:12:28,081 - __main__ - INFO - 📊 Distribución de clases: [7000 3000]
+2025-05-29 16:12:28,143 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.6:5000
+2025-05-29 16:12:28,156 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-29 16:14:18,115 - __main__ - INFO - ✅ Modelo cargado correctamente
+2025-05-29 16:14:18,116 - __main__ - INFO - ⚙️ Parámetros del modelo: {'vectorizer__ngram_range': (2, 2), 'vectorizer__min_df': 4, 'vectorizer__max_df': 0.8, 'classifier__alpha': 0.1}
+2025-05-29 16:14:18,117 - __main__ - INFO - 📊 Distribución de clases: [7000 3000]
+2025-05-29 16:14:18,160 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.6:5000
+2025-05-29 16:14:18,164 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-05-29 16:14:27,717 - werkzeug - INFO - 192.168.1.6 - - [29/May/2025 16:14:27] "[33mGET / HTTP/1.1[0m" 404 -
+2025-05-29 16:14:30,765 - werkzeug - INFO - 192.168.1.6 - - [29/May/2025 16:14:30] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-29 16:15:22,964 - werkzeug - INFO - 192.168.1.6 - - [29/May/2025 16:15:22] "[33mGET / HTTP/1.1[0m" 404 -
+2025-05-29 16:15:29,209 - werkzeug - INFO - 192.168.1.6 - - [29/May/2025 16:15:29] "[33mGET / HTTP/1.1[0m" 404 -
+2025-05-29 16:15:29,430 - werkzeug - INFO - 192.168.1.6 - - [29/May/2025 16:15:29] "[33mGET /loginMsg.js HTTP/1.1[0m" 404 -
+2025-05-29 16:15:29,449 - werkzeug - INFO - 192.168.1.6 - - [29/May/2025 16:15:29] "[33mGET /cgi/get.cgi?cmd=home_login HTTP/1.1[0m" 404 -
+2025-05-29 16:15:32,345 - werkzeug - INFO - 192.168.1.6 - - [29/May/2025 16:15:32] "[33mPOST /boaform/formTracert HTTP/1.1[0m" 404 -
+2025-05-29 16:16:00,154 - werkzeug - INFO - 127.0.0.1 - - [29/May/2025 16:16:00] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-29 16:16:00,417 - __main__ - INFO - 📩 Texto recibido (184 caracteres): Hola, he tenido 2 por 2 semanas, además de que algunas veces si sale con sangre y siento que he perd...
+2025-05-29 16:16:00,419 - __main__ - INFO - 🔄 Texto procesado: hola tenido semanas además algunas veces sale sangre siento perdido peso además tener fiebre durante...
+2025-05-29 16:16:00,434 - werkzeug - INFO - 127.0.0.1 - - [29/May/2025 16:16:00] "POST /analyze-text HTTP/1.1" 200 -
+2025-05-29 16:16:23,095 - werkzeug - INFO - 127.0.0.1 - - [29/May/2025 16:16:23] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-29 16:16:23,362 - __main__ - INFO - 📩 Texto recibido (216 caracteres): Hola, he tenido 2 por 2 semanas, además de que algunas veces si sale con sangre y siento que he perd...
+2025-05-29 16:16:23,363 - __main__ - INFO - 🔄 Texto procesado: hola tenido semanas además algunas veces sale sangre siento perdido peso además tener fiebre durante...
+2025-05-29 16:16:23,365 - werkzeug - INFO - 127.0.0.1 - - [29/May/2025 16:16:23] "POST /analyze-text HTTP/1.1" 200 -
+2025-05-29 16:19:09,559 - werkzeug - INFO - 127.0.0.1 - - [29/May/2025 16:19:09] "OPTIONS /analyze-text HTTP/1.1" 200 -
+2025-05-29 16:19:09,826 - __main__ - INFO - 📩 Texto recibido (32 caracteres): Hola, me he sentido sano y bien....
+2025-05-29 16:19:09,826 - __main__ - INFO - 🔄 Texto procesado: hola sentido sano bien...
+2025-05-29 16:19:09,826 - werkzeug - INFO - 127.0.0.1 - - [29/May/2025 16:19:09] "POST /analyze-text HTTP/1.1" 200 -
+2025-06-01 15:59:43,989 - __main__ - ERROR - ❌ Error cargando modelos: name 'TextPreprocessor' is not defined
+2025-06-01 16:01:59,113 - __main__ - ERROR - ❌ Error cargando modelos: name 'TBImageModel' is not defined
+2025-06-01 16:03:45,134 - __main__ - ERROR - ❌ Error cargando modelos: [Errno 2] No such file or directory: 'tb_radiography_model.pth'
+2025-06-01 16:04:28,182 - __main__ - INFO - ✅ Modelos cargados correctamente
+2025-06-01 16:04:48,657 - __main__ - INFO - ✅ Modelos cargados correctamente
+2025-06-01 16:04:48,699 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.6:5000
+2025-06-01 16:04:48,703 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-01 16:05:08,417 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:05:08] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:05:18,413 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:05:18] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:05:36,965 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:05:36] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:06:08,095 - __main__ - ERROR - Error procesando imagen: output with shape [1, 224, 224] doesn't match the broadcast shape [3, 224, 224]
+2025-06-01 16:06:08,095 - __main__ - ERROR - Error en análisis: '>' not supported between instances of 'NoneType' and 'float'
+2025-06-01 16:06:08,096 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:06:08] "[35m[1mPOST /analyze HTTP/1.1[0m" 500 -
+2025-06-01 16:06:18,458 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:06:18] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:06:26,640 - __main__ - ERROR - Error procesando imagen: output with shape [1, 224, 224] doesn't match the broadcast shape [3, 224, 224]
+2025-06-01 16:06:26,641 - __main__ - ERROR - Error en análisis: '>' not supported between instances of 'NoneType' and 'float'
+2025-06-01 16:06:26,642 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:06:26] "[35m[1mPOST /analyze HTTP/1.1[0m" 500 -
+2025-06-01 16:06:38,309 - __main__ - ERROR - Error procesando imagen: output with shape [1, 224, 224] doesn't match the broadcast shape [3, 224, 224]
+2025-06-01 16:06:38,310 - __main__ - ERROR - Error en análisis: '>' not supported between instances of 'NoneType' and 'float'
+2025-06-01 16:06:38,312 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:06:38] "[35m[1mPOST /analyze HTTP/1.1[0m" 500 -
+2025-06-01 16:06:48,588 - __main__ - ERROR - Error procesando imagen: output with shape [1, 224, 224] doesn't match the broadcast shape [3, 224, 224]
+2025-06-01 16:06:48,589 - __main__ - ERROR - Error en análisis: '>' not supported between instances of 'NoneType' and 'float'
+2025-06-01 16:06:48,590 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:06:48] "[35m[1mPOST /analyze HTTP/1.1[0m" 500 -
+2025-06-01 16:06:53,781 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:06:53] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:06:59,325 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:06:59] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:07:06,879 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:07:06] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:07:12,183 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:07:12] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:09:34,156 - __main__ - INFO - ✅ Modelos cargados correctamente
+2025-06-01 16:09:34,260 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.6:5000
+2025-06-01 16:09:34,302 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-01 16:10:02,937 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:10:02] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:10:16,836 - __main__ - ERROR - Error procesando imagen: output with shape [1, 224, 224] doesn't match the broadcast shape [3, 224, 224]
+2025-06-01 16:10:16,839 - __main__ - ERROR - Error en análisis: '>' not supported between instances of 'NoneType' and 'float'
+2025-06-01 16:10:16,841 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:10:16] "[35m[1mPOST /analyze HTTP/1.1[0m" 500 -
+2025-06-01 16:10:34,110 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:10:34] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:15:12,775 - __main__ - INFO - ✅ Modelos cargados correctamente
+2025-06-01 16:15:12,843 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.6:5000
+2025-06-01 16:15:12,846 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-01 16:21:23,173 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:21:23] "OPTIONS /analyze HTTP/1.1" 200 -
+2025-06-01 16:21:23,550 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:21:23] "[31m[1mPOST /analyze HTTP/1.1[0m" 400 -
+2025-06-01 16:21:27,941 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:21:27] "OPTIONS /analyze HTTP/1.1" 200 -
+2025-06-01 16:21:27,947 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:21:27] "[31m[1mPOST /analyze HTTP/1.1[0m" 400 -
+2025-06-01 16:21:33,063 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:21:33] "OPTIONS /analyze HTTP/1.1" 200 -
+2025-06-01 16:21:33,370 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:21:33] "[31m[1mPOST /analyze HTTP/1.1[0m" 400 -
+2025-06-01 16:21:59,182 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:21:59] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:22:10,996 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:22:10] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:22:28,284 - __main__ - ERROR - Error procesando PDF: Unsupported input type: <class 'werkzeug.datastructures.file_storage.FileStorage'>
+2025-06-01 16:22:28,286 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:22:28] "[31m[1mPOST /analyze HTTP/1.1[0m" 400 -
+2025-06-01 16:22:35,999 - __main__ - ERROR - Error procesando PDF: Unsupported input type: <class 'werkzeug.datastructures.file_storage.FileStorage'>
+2025-06-01 16:22:36,051 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:22:36] "[31m[1mPOST /analyze HTTP/1.1[0m" 400 -
+2025-06-01 16:23:33,386 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:23:33] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:23:59,968 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:23:59] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:24:06,596 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:24:06] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:24:21,981 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:24:21] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:24:34,933 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:24:34] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:24:45,031 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:24:45] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:24:59,393 - __main__ - ERROR - Error procesando PDF: Unsupported input type: <class 'werkzeug.datastructures.file_storage.FileStorage'>
+2025-06-01 16:24:59,394 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:24:59] "[31m[1mPOST /analyze HTTP/1.1[0m" 400 -
+2025-06-01 16:25:16,723 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:25:16] "OPTIONS /find-hospital HTTP/1.1" 200 -
+2025-06-01 16:25:17,005 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:25:17] "POST /find-hospital HTTP/1.1" 200 -
+2025-06-01 16:27:41,574 - __main__ - INFO - ✅ Modelos cargados correctamente
+2025-06-01 16:27:41,641 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.6:5000
+2025-06-01 16:27:41,643 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-01 16:27:54,157 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:27:54] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:28:13,240 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:28:13] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:28:21,564 - __main__ - ERROR - Error procesando PDF: Unsupported input type: <class 'werkzeug.datastructures.file_storage.FileStorage'>
+2025-06-01 16:28:21,568 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:28:21] "[31m[1mPOST /analyze HTTP/1.1[0m" 400 -
+2025-06-01 16:33:38,135 - __main__ - INFO - ✅ Modelos cargados correctamente
+2025-06-01 16:33:38,223 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.6:5000
+2025-06-01 16:33:38,228 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-01 16:33:50,133 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:33:50] "[31m[1mPOST /analyze HTTP/1.1[0m" 400 -
+2025-06-01 16:33:59,263 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:33:59] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:34:06,898 - __main__ - ERROR - Error procesando PDF: Unsupported input type: <class 'werkzeug.datastructures.file_storage.FileStorage'>
+2025-06-01 16:34:06,912 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:34:06] "[35m[1mPOST /analyze HTTP/1.1[0m" 500 -
+2025-06-01 16:34:15,235 - __main__ - ERROR - Error procesando PDF: Unsupported input type: <class 'werkzeug.datastructures.file_storage.FileStorage'>
+2025-06-01 16:34:15,236 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:34:15] "[35m[1mPOST /analyze HTTP/1.1[0m" 500 -
+2025-06-01 16:34:26,720 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:34:26] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:34:34,186 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:34:34] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:34:40,293 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:34:40] "OPTIONS /find-hospital HTTP/1.1" 200 -
+2025-06-01 16:34:40,622 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:34:40] "POST /find-hospital HTTP/1.1" 200 -
+2025-06-01 16:40:03,654 - __main__ - INFO - ✅ Modelos cargados correctamente
+2025-06-01 16:40:03,748 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.6:5000
+2025-06-01 16:40:03,753 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-01 16:40:42,513 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:40:42] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:40:48,254 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:40:48] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:40:56,270 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:40:56] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:41:07,708 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:41:07] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:41:24,268 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:41:24] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:42:35,150 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:42:35] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:42:44,176 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:42:44] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:42:57,186 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:42:57] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:43:12,853 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:43:12] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:43:25,041 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:43:25] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:43:36,606 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:43:36] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 16:43:46,537 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:43:46] "OPTIONS /find-hospital HTTP/1.1" 200 -
+2025-06-01 16:43:46,800 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 16:43:46] "POST /find-hospital HTTP/1.1" 200 -
+2025-06-01 18:54:00,861 - __main__ - INFO - ✅ Modelos cargados correctamente
+2025-06-01 18:56:53,469 - __main__ - INFO - ✅ Modelos cargados correctamente
+2025-06-01 18:56:53,496 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.6:5000
+2025-06-01 18:56:53,603 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-01 18:56:58,083 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 18:56:58] "[33mGET / HTTP/1.1[0m" 404 -
+2025-06-01 18:57:18,375 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 18:57:18] "OPTIONS /find-hospital HTTP/1.1" 200 -
+2025-06-01 18:57:18,646 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 18:57:18] "POST /find-hospital HTTP/1.1" 200 -
+2025-06-01 19:02:23,377 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 19:02:23] "OPTIONS /find-hospital HTTP/1.1" 200 -
+2025-06-01 19:02:23,647 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 19:02:23] "POST /find-hospital HTTP/1.1" 200 -
+2025-06-01 19:02:38,498 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 19:02:38] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 20:29:41,861 - __main__ - INFO - ✅ Modelos cargados correctamente
+2025-06-01 20:29:41,890 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.6:5000
+2025-06-01 20:29:41,896 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-01 20:31:57,140 - __main__ - INFO - ✅ Modelos cargados correctamente
+2025-06-01 20:31:57,201 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.6:5000
+2025-06-01 20:31:57,216 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-01 20:34:48,307 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 20:34:48] "[31m[1mPOST /analyze HTTP/1.1[0m" 400 -
+2025-06-01 20:35:05,861 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 20:35:05] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 20:35:28,905 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 20:35:28] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 20:38:33,060 - __main__ - INFO - ✅ Modelos cargados correctamente
+2025-06-01 20:38:33,083 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.6:5000
+2025-06-01 20:38:33,087 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-01 20:38:56,663 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 20:38:56] "OPTIONS /find-hospital HTTP/1.1" 200 -
+2025-06-01 20:38:56,910 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 20:38:56] "POST /find-hospital HTTP/1.1" 200 -
+2025-06-01 20:41:06,984 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 20:41:06] "[31m[1mPOST /analyze HTTP/1.1[0m" 400 -
+2025-06-01 20:41:50,859 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 20:41:50] "[31m[1mPOST /analyze HTTP/1.1[0m" 400 -
+2025-06-01 20:42:19,779 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 20:42:19] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 20:42:29,881 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 20:42:29] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 20:42:44,096 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 20:42:44] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 20:42:58,585 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 20:42:58] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 20:43:12,111 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 20:43:12] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 20:43:24,951 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 20:43:24] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 20:45:15,402 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 20:45:15] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 20:46:18,216 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 20:46:18] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 20:46:50,220 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 20:46:50] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 20:47:31,695 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 20:47:31] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 20:47:57,041 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 20:47:57] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 20:48:06,809 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 20:48:06] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 20:50:11,860 - __main__ - INFO - ✅ Modelos cargados correctamente
+2025-06-01 20:50:11,888 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.6:5000
+2025-06-01 20:50:11,893 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-01 20:50:47,043 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 20:50:47] "OPTIONS /find-hospital HTTP/1.1" 200 -
+2025-06-01 20:50:47,325 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 20:50:47] "POST /find-hospital HTTP/1.1" 200 -
+2025-06-01 20:53:18,097 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 20:53:18] "OPTIONS /find-hospital HTTP/1.1" 200 -
+2025-06-01 20:53:18,352 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 20:53:18] "POST /find-hospital HTTP/1.1" 200 -
+2025-06-01 21:05:11,351 - __main__ - INFO - ✅ Modelos cargados correctamente
+2025-06-01 21:05:11,369 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.6:5000
+2025-06-01 21:05:11,369 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-06-01 21:06:11,180 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:06:11] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 21:06:32,095 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:06:32] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 21:06:44,404 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:06:44] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 21:06:56,149 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:06:56] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 21:07:06,912 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:07:06] "POST /analyze HTTP/1.1" 200 -
+2025-06-01 21:07:22,094 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:07:22] "OPTIONS /find-hospital HTTP/1.1" 200 -
+2025-06-01 21:07:22,395 - werkzeug - INFO - 127.0.0.1 - - [01/Jun/2025 21:07:22] "POST /find-hospital HTTP/1.1" 200 -
